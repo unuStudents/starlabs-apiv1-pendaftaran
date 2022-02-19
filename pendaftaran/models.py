@@ -20,14 +20,14 @@ class Prodi(models.Model):
 class Divisi(models.Model):
     divisi = models.CharField(max_length=20)
 
-    def __str__(self) -> str:
+    def __str__(self):
         return '{} - {}'.format(self.id, self.divisi)
 
 
 class Angkatan(models.Model):
-    angkatan = models.IntegerField(primary_key=True)
+    angkatan = models.CharField(primary_key=True)
 
-    def __str__(self) -> str:
+    def __str__(self):
         return self.angkatan
 
 
