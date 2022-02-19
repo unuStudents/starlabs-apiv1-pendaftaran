@@ -54,4 +54,4 @@ class Mahasiswa(models.Model):
     divisi      = models.ForeignKey(Divisi, on_delete=models.CASCADE)
 
     def __str__(self):
-        return str('{} - {}'.format(self.nama, self.divisi))
+        return '{} - Starlabs'.format(self.nama)
