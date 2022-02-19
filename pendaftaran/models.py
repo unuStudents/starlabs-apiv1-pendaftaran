@@ -28,7 +28,7 @@ class Angkatan(models.Model):
     angkatan = models.IntegerField(primary_key=True)
 
     def __str__(self) -> str:
-        return '{} - {}'.format(self.angkatan)
+        return self.angkatan
 
 
 class Mahasiswa(models.Model):
