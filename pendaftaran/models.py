@@ -24,12 +24,19 @@ class Divisi(models.Model):
         return '{} - {}'.format(self.id, self.divisi)
 
 
+class Angkatan(models.Model):
+    angkatan = models.IntegerField(primary_key=True)
+
+    def __str__(self) -> str:
+        return '{} - {}'.format(self.angkatan)
+
+
 class Mahasiswa(models.Model):
-    CHOICE_ANGKATAN = [
-        (2019, '2019'),
-        (2020, '2020'),
-        (2021, '2021')
-    ]
+    # CHOICE_ANGKATAN = [
+    #     (2019, '2019'),
+    #     (2020, '2020'),
+    #     (2021, '2021')
+    # ]
         
     id          = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
     nama        = models.CharField(max_length=70)
@@ -40,7 +47,8 @@ class Mahasiswa(models.Model):
     tgl_lahir   = models.DateField(null=True)
     created_at  = models.DateTimeField(auto_now_add=True)
     updated_at  = models.DateTimeField(auto_now=True)
-    angkatan    = models.IntegerField(choices=CHOICE_ANGKATAN, default=2019)
+    # angkatan    = models.IntegerField(choices=CHOICE_ANGKATAN, default=2019)
+    angkatan    = models.ForeignKey(Angkatan, on_delete=models.CASCADE)
     fakultas    = models.ForeignKey(Fakultas, on_delete=models.CASCADE)
     prodi       = models.ForeignKey(Prodi, on_delete=models.CASCADE)
     divisi      = models.ForeignKey(Divisi, on_delete=models.CASCADE)
