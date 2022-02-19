@@ -25,7 +25,7 @@ class Divisi(models.Model):
 
 
 class Angkatan(models.Model):
-    angkatan = models.CharField(primary_key=True)
+    angkatan = models.CharField(max_length=5, primary_key=True)
 
     def __str__(self):
         return self.angkatan
